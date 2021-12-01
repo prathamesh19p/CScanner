@@ -10,7 +10,6 @@ import imutils
 def order_points(pts):
 
 	rect = np.zeros((4, 2), dtype="float32")
-
 	s = pts.sum(axis=1)
 	rect[0] = pts[np.argmin(s)]
 	rect[2] = pts[np.argmax(s)]
@@ -76,7 +75,6 @@ cnts = sorted(cnts, key = cv2.contourArea, reverse = True)[:5]
 
 
 for c in cnts:
-
 	peri = cv2.arcLength(c, True)
 	approx = cv2.approxPolyDP(c, 0.02 * peri, True)
 
